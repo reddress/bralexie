@@ -6,6 +6,7 @@
   </head>
   <body>
     <script src="../external/js/jquery.js"></script>
+    <script src="../firebase-config.js"></script>
     <script>
      // var firebaseURL = "https://APPNAME.firebaseio.com/bralexie/";
      function sendRequest(type, endpoint, data, success) {
@@ -38,8 +39,8 @@
      // addTransaction({ "name": "lunch", "value": 1500 });
      // addTransaction({ "account": "wal", "value": 1000 });
 
-     // addTransaction({ "name": "eggs", "value": 720 });
-
+     addTransaction({ "name": "eggs", "value": 720 });
+     
      var currentTransactions = sendRequest("GET", "transactions", "", function(data) { console.log(data); } );
 
     </script>
