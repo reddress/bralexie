@@ -4,23 +4,19 @@ Alexie Beans, Made for Brazil
 
 ## To-do
 
-* Powered by Django
-
 * Alexie Beans model
 
-* Simple desktop front-end, Material Design Lite?
-
-* Find out internationalization options
+* Bootstrap front-end
 
 * Incorporate account types into a catchy name
 
-** Assets: Bens e Direitos
+* Assets: Bens e Direitos
 
-** Expenses: Despesas
+* Expenses: Despesas
 
-** Liabilities: Obrigações
+* Liabilities: Obrigações
 
-** Income: Receitas
+* Income: Receitas
 
-** Equity: Patrimônio Líquido
+* Equity: Patrimônio Líquido
 
