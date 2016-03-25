@@ -1,130 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="pt">
   <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>Multi-Level Push Menu - Demo 2</title>
-	<meta name="description" content="Multi-Level Push Menu: Off-screen navigation with multiple levels" />
-	<meta name="keywords" content="multi-level, menu, navigation, off-canvas, off-screen, mobile, levels, nested, transform" />
-	<meta name="author" content="Codrops" />
-	<link rel="shortcut icon" href="/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/external/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="/external/css/ml-demo.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="/external/css/icons.css" /> -->
-	<link rel="stylesheet" type="text/css" href="/external/css/ml-component.css" />
-	<script src="/external/js/modernizr.custom.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixed top nav</title>
+
+    <link rel="stylesheet" href="/external/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/external/css/ie10-viewport-bug-workaround.css">
+
+    <style>
+     body {
+         padding: 70px 20px 10px 20px;
+     }
+    </style>
   </head>
   <body>
-	<div class="container">
-	  <!-- Push Wrapper -->
-	  <div class="mp-pusher" id="mp-pusher">
-
-        <nav id="mp-menu" class="mp-menu">
-          <div class="mp-level">
-            <h2>Escolha uma opção</h2>
-            <ul>
-              <li>
-                <a class="menuTopLevel" href="#">Saldos</a>
-                <div class="mp-level">
-                  <h2>Saldos</h2>
-                  <a class="mp-back" href="#">Voltar</a>
-                  <ul>
-                    <li><a class="contentLink" href="#saldos_bens">Bens</a></li>
-                    <li><a class="contentLink" href="#saldos_despesas">Despesas</a></li>
-                    <li><a class="contentLink" href="#saldos_obrigacoes">Obrigações</a></li>
-                    <li><a class="contentLink" href="#saldos_receitas">Receitas</a></li>
-                    <li><a class="contentLink" href="#saldos_patrimonio">Patrimônio líquido</a></li>
-                  </ul>
-                </div> <!-- mp-level saldos -->
-              </li> <!-- saldos -->
-              <li>
-                <a class="menuTopLevel" href="#">Nova conta</a>
-                <div class="mp-level">
-                  <h2>Nova conta</h2>
-                  <a class="mp-back" href="#">Voltar</a>
-                  <ul>
-                    <li><a class="contentLink" href="#contas_bens">Bens</a></li>
-                    <li><a class="contentLink" href="#contas_despesas">Despesas</a></li>
-                    <li><a class="contentLink" href="#contas_obrigacoes">Obrigações</a></li>
-                    <li><a class="contentLink" href="#contas_receitas">Receitas</a></li>
-                    <li><a class="contentLink" href="#contas_patrimonio">Patrimônio líquido</a></li>
-                  </ul>
-                </div> <!-- mp-level nova conta -->
-              </li> <!-- nova conta -->
-
-              <li>
-                <a class="menuTopLevel" href="#">Transações</a>
-                <div class="mp-level">
-                  <h2>Transações</h2>
-                  <a class="mp-back" href="#">Voltar</a>
-                  <ul>
-                    <li><a class="contentLink" href="#transacoes_despesa">Nova despesa</a></li>
-                    <li><a class="contentLink" href="#transacoes_receita">Nova receita</a></li>
-                    <li><a class="contentLink" href="#transacoes_criarBens">Criar bens</a></li>
-                    <li><a class="contentLink" href="#transacoes_transferirBens">Transferir bens</a></li>
-                    <li><a class="contentLink" href="#transacoes_outra">Outra transação</a></li>
-                  </ul>
-                </div> <!-- mp-level nova conta -->
-              </li> <!-- transacoes -->
-
-              <li>
-                <a class="contentLink" href="#meusDados">Meus Dados</a>
-              </li>
-              
-            </ul> <!-- escolha uma opcao -->
-          </div> <!-- mp-level 1 -->
-        </nav> <!-- mp-menu -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" id="btnCollapse" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Trocar navegação</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BrAlexie</a>
+        </div> <!-- navbar-header -->
         
-		<div class="scroller"><!-- this is for emulating position fixed of the nav -->
-		  <div class="scroller-inner">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
 
-            <div class="menuTriggerBlock clearfix">
-			  <p><a href="#" id="trigger" class="menu-trigger">BrAlexie</a></p>
-            </div> <!-- menu icon -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Saldos <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="contentLink" href="#saldos_bens">Bens</a></li>
+                <li><a class="contentLink" href="#saldos_despesas">Despesas</a></li>
+                <li><a class="contentLink" href="#saldos_obrigacoes">Obrigações</a></li>
+                <li><a class="contentLink" href="#saldos_receitas">Receitas</a></li>
+                <li><a class="contentLink" href="#saldos_patrimonio">Patrimônio líquido</a></li>
+              </ul>
+            </li> <!-- saldos dropdown -->
 
-            <div class="myBlock clearfix">
-              <div id="mainContent">
-                My Content
-              </div> <!-- mainContent -->
-            </div> <!-- myBlock -->
-            
-		  </div><!-- /scroller-inner -->
-		</div><!-- /scroller -->
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nova conta <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="contentLink" href="#contas_bens">Bens</a></li>
+                <li><a class="contentLink" href="#contas_despesas">Despesas</a></li>
+                <li><a class="contentLink" href="#contas_obrigacoes">Obrigações</a></li>
+                <li><a class="contentLink" href="#contas_receitas">Receitas</a></li>
+                <li><a class="contentLink" href="#contas_patrimonio">Patrimônio líquido</a></li>
+              </ul>
+            </li> <!-- contas dropdown -->
 
-	  </div><!-- /pusher -->
-	</div><!-- /container -->
-	<script src="/external/js/jquery.js"></script>
-	<script src="/external/js/classie.js"></script>
-	<script src="/external/js/mlpushmenu.js"></script>
-	<script>
-	 var mlMenu = new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ), {
-	   type : 'cover'
-	 } );
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transações <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="contentLink" href="#transacoes_despesa">Nova despesa</a></li>
+                <li><a class="contentLink" href="#transacoes_receita">Nova receita</a></li>
+                <li><a class="contentLink" href="#transacoes_criar_bens">Criar bens</a></li>
+                <li><a class="contentLink" href="#transacoes_transferir_bens">Transferir bens</a></li>
+                <li><a class="contentLink" href="#transacoes_outro">Outra transação</a></li>
+              </ul>
+            </li> <!-- transacoes dropdown -->
 
-     function activate(s) {
-       mlMenu._resetMenu();
-       document.getElementById("myContent").innerHTML = "activating " + s;
-     }
+            <li><a class="contentLink" href="#meus_dados">Meus dados <span class="glyphicon glyphicon-user"></span></a></li>
+          </ul> <!-- nav navbar-nav -->
+        </div> <!-- navbar -->
+      </div> <!-- container -->
+    </nav>
 
-     // respond to menu clicks that change URL hash
+    <section id="transaction_list"> <!-- transaction list -->
+      Transações<br>
+      Transações<br>
+      Transações<br>
+      Transações<br>
+      Transações<br>
+      Transações<br>
+      Transações<br>
+      Transações<br>
+      Transações<br>
+      Transações<br>
+    </section> <!-- transaction list -->
+     
+    <script src="/external/js/jquery.js"></script>
+    <script src="/external/js/bootstrap.min.js"></script>
+    <script src="/external/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script>
      window.addEventListener("hashchange", function() {
-       refreshContent();
-     });
-
-     $("a.contentLink").click(function() {
-       mlMenu._resetMenu();
+       console.log("detected hash change");
+       $("#transaction_list").html(location.hash);
      });
      
-     function refreshContent() {
-       if (location.hash !== "") {
-         $("#mainContent").html(location.hash);       
+     $("a.contentLink").click(function() {
+       if ($("#btnCollapse").css('display') != 'none') {
+         $("#btnCollapse").click();
        }
-     }
-
-     $(window).load(function() {
-       refreshContent();
      });
-	</script>
+    </script>
   </body>
 </html>

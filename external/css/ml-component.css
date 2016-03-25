@@ -28,11 +28,11 @@ html, body, .container, .scroller {
 .menu-trigger {
 	position: relative;
 	padding-left: 60px;
-	font-size: 0.9em;
+	font-size: 2em;
 }
 
 .menu-trigger:before {
-	content: '';
+	content: '    ';
 	position: absolute;
 	top: 2px;
 	left: 0;

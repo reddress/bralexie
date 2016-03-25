@@ -175,15 +175,26 @@ a:hover, a:focus {
 }
 
 .menuTriggerBlock {
-    margin: 0;
-    padding: 0 1em;
-    font-size: 2.2em;
-}
-
-.myBlock {
+    position: fixed;
     margin: 0;
     padding: 0 1em;
     font-size: 1em;
+}
+
+.myBlock {
+    position: fixed;
+    margin: 0;
+    top: 4em;
+    bottom: 0;
+    padding: 0 0 0 1em;
+    font-size: 1em;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+#mainContent {
+    padding-bottom: 1em;
 }
 
 .mp-level ul li a.contentLink {
