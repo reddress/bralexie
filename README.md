@@ -6,6 +6,8 @@ Alexie Beans, Made for Brazil
 
 * clicking on account name opens account page with transactions list, named #conta_[id number], such as #conta_3
 
+* "Advanced search" or "all months"
+
 * Incorporate account types into a catchy name
 
 * Assets: Bens e Direitos
