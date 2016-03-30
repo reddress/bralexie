@@ -4,11 +4,7 @@ Alexie Beans, Made for Brazil
 
 ## To-do
 
-* Bootstrap front-end
-
-* When menu item is clicked, show appropriate area
-
-* Look at hashchange. Menu click -> change hash -> hashchange listener shows correct panels, tables, or forms
+* clicking on account name opens account page with transactions list, named #conta_[id number], such as #conta_3
 
 * Incorporate account types into a catchy name
 
@@ -22,7 +18,7 @@ Transaction types:
 
 * Despesa (Expense) [Debit Exp/Liab, Credit Asset/Liab]
 * Receita (Income)  [Debit Asset,    Credit Inc]
-* Criar bens (New asset) [Debit Asset, Credit Equity]
+* Definir bens (New asset) [Debit Asset, Credit Equity]
 * Transferir bens   [Debit/Credit Asset]
 * Outro (Other)     [Debit/Credit any]
 

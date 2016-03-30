@@ -37,6 +37,20 @@ var sampleAccounts = [
     balance: 540,
   },
   
+  {
+    id: 5,
+    accountType: "obrigacoes",
+    name: "Credit card",
+    balance: 100,
+  },
+  
+  {
+    id: 6,
+    accountType: "patrimonio",
+    name: "Opening equity",
+    balance: 3400,
+  },
+  
   
 
 ];
