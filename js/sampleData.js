@@ -68,7 +68,7 @@ var sampleTransactions = [
   {
     id: 1,
     debit: 1,
-    credit: 5,
+    credit: 0,
     amount: 2500,
     description: "Feb. salary",
     date: "2016-03-02 12:10",
