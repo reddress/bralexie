@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixed top nav</title>
+
+    <link rel="stylesheet" href="/external/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/external/css/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" href="/css/bralexie.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" id="btnCollapse" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Trocar navegação</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BrAlexie</a>
+        </div> <!-- navbar-header -->
+        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+
+            <!-- Begin Nav content -->
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contas <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="contentLink" href="#contas_bens">Bens</a></li>
+                <li><a class="contentLink" href="#contas_despesas">Despesas</a></li>
+                <li><a class="contentLink" href="#contas_obrigacoes">Obrigações</a></li>
+                <li><a class="contentLink" href="#contas_receitas">Receitas</a></li>
+                <li><a class="contentLink" href="#contas_patrimonio">Patrimônio líquido</a></li>
+              </ul>
+            </li> <!-- contas dropdown -->
+
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transações <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Nova despesa</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Nova receita</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Definir saldo inicial</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Transferir bens</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Outra transação</a></li>
+
+                <!--
+                <li><a class="contentLink" href="#transacoes_despesa">Nova despesa</a></li>
+                <li><a class="contentLink" href="#transacoes_receita">Nova receita</a></li>
+                <li><a class="contentLink" href="#transacoes_definirSaldo">Definir saldo inicial</a></li>
+                <li><a class="contentLink" href="#transacoes_transferirBens">Transferir bens</a></li>
+                <li><a class="contentLink" href="#transacoes_outro">Outra transação</a></li>
+                -->
+              </ul>
+            </li> <!-- transacoes dropdown -->
+
+            <!-- TODO: move to "homepage" (#) content screen
+            <li><a class="contentLink" href="#meus_dados">Meus dados <span class="glyphicon glyphicon-user"></span></a></li>
+            -->
+
+            <!-- Mes -->
+            <li class="dropdown">
+              <a id="monthLabel" data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mês <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="monthLabel">
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(1);">Janeiro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(2);">Fevereiro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(3);">Março</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(4);">Abril</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(5);">Maio</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(6);">Junho</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(7);">Julho</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(8);">Agosto</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(9);">Setembro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(10);">Outubro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(11);">Novembro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(12);">Dezembro</a></li>
+              </ul>
+            </li> <!-- mes dropdown -->
+            
+            
+            <!-- Ano -->
+            <li class="dropdown">
+              <a id="yearLabel" data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ano <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="yearLabel">
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2015);">2015</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2016);">2016</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2017);">2017</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2018);">2018</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2019);">2019</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2020);">2020</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2021);">2021</a></li>
+              </ul>
+            </li> <!-- ano dropdown -->
+            
+            
+          </ul> <!-- nav navbar-nav -->
+        </div> <!-- navbar -->
+      </div> <!-- container -->
+    </nav>
+
+    <section id="mainContent">
+      <table>
+        <tr class="accountSummaryRow" data-href="#conta_0">
+          <td>
+            Conta 0
+          </td>
+        </tr>
+
+        
+      </table>
+      Tr 01<br>
+      Tr 02<br>
+      Tr<br>
+      Tr<br>
+      Tr -1<br>
+    </section> <!-- mainContent -->
+
+
+    <!-- Nova Conta Modal -->
+    <div class="modal fade" id="novaContaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nova conta</h4>
+          </div>
+          <div class="modal-body">
+            <input type="text" class="form-control" placeholder="Nome" id="novaContaInput" autofocus>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetNovaContaModal();">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="addAccount();" id="novaContaAdicionar" disabled>Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end Nova Conta Modal -->
+    
+
+    <!-- Nova Transação Modal -->
+    <div class="modal fade" id="novaTransacaoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nova transação</h4>
+          </div>
+          <div class="modal-body">
+            Descrição: 
+            <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput" autofocus>
+            
+            <br>
+
+            Valor:
+            <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput" autofocus>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetNovaTransacaoModal();">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="addTransaction();" id="novaTransacaoAdicionar" disabled>Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end Nova Transação Modal -->
+
+    
+    <script src="/external/js/jquery.js"></script>
+    <script src="/external/js/bootstrap.min.js"></script>
+    <script src="/external/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script src="/external/js/underscore-min.js"></script>
+    <script src="/external/js/backbone-min.js"></script>
+    <script src="/external/js/backbone.localStorage.js"></script>
+    
+    <script src="/js/sampleData.js"></script>
+    <script src="/firebase-config.js"></script>
+
+    <script>
+     var Book = Backbone.Model.extend({
+       defaults: function() {
+         return {
+           title: "Untitled",
+           author: "Unknown",
+         };
+       },
+       
+     });
+       
+     var Library = Backbone.Collection.extend({
+       model: Book,
+       // url: firebaseURL + "library.json",
+       localStorage: new Backbone.LocalStorage("backbone-library"),
+     });
+
+
+     var MyLibrary = new Library;
+     MyLibrary.fetch();
+     
+    </script>
+  </body>
+</html>
