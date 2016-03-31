@@ -19,3 +19,11 @@ body {
 .actionLabel {
     font-weight: bold;
 }
+
+.numberCell {
+    text-align: right;
+}
+
+.headerCell {
+    font-weight: bold;
+}

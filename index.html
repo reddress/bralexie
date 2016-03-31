@@ -41,11 +41,19 @@
             <li>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transações <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Nova despesa</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Nova receita</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Definir saldo inicial</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Transferir bens</a></li>
+                <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Outra transação</a></li>
+
+                <!--
                 <li><a class="contentLink" href="#transacoes_despesa">Nova despesa</a></li>
                 <li><a class="contentLink" href="#transacoes_receita">Nova receita</a></li>
                 <li><a class="contentLink" href="#transacoes_definirSaldo">Definir saldo inicial</a></li>
                 <li><a class="contentLink" href="#transacoes_transferirBens">Transferir bens</a></li>
                 <li><a class="contentLink" href="#transacoes_outro">Outra transação</a></li>
+                -->
               </ul>
             </li> <!-- transacoes dropdown -->
 
@@ -128,8 +136,34 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> <!-- end Nova Conta Modal -->
     
+
+    <!-- Nova Transação Modal -->
+    <div class="modal fade" id="novaTransacaoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nova transação</h4>
+          </div>
+          <div class="modal-body">
+            Descrição: 
+            <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput" autofocus>
+            
+            <br>
+
+            Valor:
+            <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput" autofocus>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetNovaTransacaoModal();">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="addTransaction();" id="novaTransacaoAdicionar" disabled>Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end Nova Transação Modal -->
+
     
     <script src="/external/js/jquery.js"></script>
     <script src="/external/js/bootstrap.min.js"></script>
@@ -168,7 +202,7 @@
     </script>
 
     <script>
-      // UI
+     // UI
      function validateAccountName() {
        $("#novaContaInput").keyup(function() {
          if ($("#novaContaInput").val() === "") {
@@ -181,6 +215,18 @@
 
      validateAccountName();
 
+     function validateTransactionName() {
+       $("#novaTransacaoInput").keyup(function() {
+         if ($("#novaTransacaoInput").val() === "") {
+           $("#novaTransacaoAdicionar").prop('disabled', true);
+         } else {
+           $("#novaTransacaoAdicionar").prop('disabled', false);
+         }
+       });
+     }
+
+     validateTransactionName();
+     
      $(document).on('shown.bs.modal', '.modal', function() {
        $(this).find('[autofocus]').focus();
      });
@@ -242,11 +288,11 @@
        table += "<thead>";
        table += "<tr>";
        table += "  <td>&nbsp;</td>";
-       table += "  <td>Saldo</td>"
-       table += "  <td id='accountTypeSummaryMonth'>" + monthTableLabel + "</td>";
+       table += "  <td class='numberCell headerCell'>Saldo</td>"
+       table += "  <td class='numberCell headerCell' id='accountTypeSummaryMonth'>" + monthTableLabel + "</td>";
 
        if (accountType === "despesas") {
-         table += "  <td>Orçamento</td>";
+         table += "  <td class='numberCell headerCell'>Orçamento</td>";
        }
        
        table += "</tr>";
@@ -258,11 +304,11 @@
          if (currentAccount.accountType === accountType) {
            table += '<tr class="accountSummaryRow" onclick="updateHash(\'#conta_' +currentAccount.id + '\');">';
            table += "  <td>" + currentAccount.name + "</td>";
-           table += "  <td>" + currentAccount.balance + "</td>";
-           table += "  <td>" + currentAccount.balance + "</td>";
+           table += "  <td class='numberCell'>" + currentAccount.balance + "</td>";
+           table += "  <td class='numberCell'>" + currentAccount.balance + "</td>";
 
            if (accountType === "despesas") {
-             table += "  <td> 0 </td>";
+             table += "  <td class='numberCell'>" + Math.round(currentAccount.balance / 1.2)+ "</td>";
            }
            
            table += "</tr>";
@@ -290,7 +336,7 @@
 
        output += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaContaModal">Nova conta</button>';
 
-       output += '<br><br>';
+       output += '<br>';
        
        output += accountTypeSummaryTable(accounts, accountType);
        return output;
@@ -320,9 +366,19 @@
        $("#novaContaModal").modal('hide');
      }
 
+     function addTransaction() { 
+       resetNovaTransacaoModal();
+       $("#novaTransacaoModal").modal('hide');      
+     }
+
      function resetNovaContaModal() {
        $("#novaContaInput").val("");
        $("#novaContaAdicionar").prop("disabled", true);
+     }
+
+     function resetNovaTransacaoModal() {
+       $("#novaTransacaoInput").val("");
+       $("#novaTransacaoAdicionar").prop("disabled", true);
      }
 
      function getTransactions(allTransactions, accountId) {
@@ -342,7 +398,7 @@
          var hashParts = location.hash.substr(1).split("_");
          var action = hashParts[0];
          var actionObject = hashParts[1];
-       
+         
          if (action === "contas") {
            setContent(accountTypeSummaryContent(sampleAccounts, actionObject));
            
@@ -355,6 +411,8 @@
            setContent(accountSummaryContent(sampleTransactions, sampleAccounts, accountId));
 
            // transactionsTable(getTransactions(sampleTransactions, accountId)));
+           
+         } else if (action === "novaTransacaoModal") {
            
          } else {
            console.log("Ação inválida: " + action);
