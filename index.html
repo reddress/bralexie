@@ -38,6 +38,7 @@
               </ul>
             </li> <!-- contas dropdown -->
 
+            <!--
             <li>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transações <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -46,7 +47,8 @@
                 <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Definir saldo inicial</a></li>
                 <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Transferir bens</a></li>
                 <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Outra transação</a></li>
-
+                -->
+                
                 <!--
                 <li><a class="contentLink" href="#transacoes_despesa">Nova despesa</a></li>
                 <li><a class="contentLink" href="#transacoes_receita">Nova receita</a></li>
@@ -54,9 +56,13 @@
                 <li><a class="contentLink" href="#transacoes_transferirBens">Transferir bens</a></li>
                 <li><a class="contentLink" href="#transacoes_outro">Outra transação</a></li>
                 -->
-              </ul>
-            </li> <!-- transacoes dropdown -->
 
+                <!--
+              </ul>
+            </li>
+                -->
+                <!-- transacoes dropdown -->
+                
             <!-- TODO: move to "homepage" (#) content screen
             <li><a class="contentLink" href="#meus_dados">Meus dados <span class="glyphicon glyphicon-user"></span></a></li>
             -->
@@ -154,7 +160,7 @@
             <br>
 
             Valor:
-            <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput" autofocus>
+            <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetNovaTransacaoModal();">Cancelar</button>
@@ -266,7 +272,7 @@
          
          table += "<tr>";
          table += "  <td>" + transaction.description + "</td>";
-         table += "  <td>" + transaction.amount + "</td>";
+         table += "  <td class='numberCell'>" + transaction.amount + "</td>";
          table += "  <td>" + sampleAccounts[transaction.debit].name + "</td>";
          table += "  <td>" + sampleAccounts[transaction.credit].name + "</td>";
          table += "</tr>";
@@ -325,7 +331,13 @@
        var output = "";
        output += '<h4><a href="#contas_' + accountType + '"><span class="contentHeaderLabel">' + accountTypeNames[accountType] + '</span></a></h4>';
 
+       // add Transaction button
+       output += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaTransacaoModal">Nova transação</button>';
+
+       output += "<br><br>";
        output += '<span class="subHeaderLabel">' + allAccounts[accountId].name + '</span>';
+
+       
        output += transactionsTable(getTransactions(allTransactions, accountId));
        return output;
      }
@@ -334,7 +346,7 @@
        var output = "";
        output += '<h4><span class="contentHeaderLabel">' + accountTypeNames[accountType] + '</span></h4>';
 
-       output += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaContaModal">Nova conta</button>';
+       output += '<button type="button" class="btn btn-nova-conta" data-toggle="modal" data-target="#novaContaModal">Nova conta</button>';
 
        output += '<br>';
        
@@ -418,7 +430,8 @@
            console.log("Ação inválida: " + action);
          }
        } else {
-         setContent("<h4><span class='contentHeaderLabel'>Últimas transações</span></h4>" + transactionsTable(sampleTransactions));
+         var newTransactionButton = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaTransacaoModal">Nova transação</button>';
+         setContent("<h4><span class='contentHeaderLabel'>Últimas transações</span></h4>" + newTransactionButton + transactionsTable(sampleTransactions));
        }
      }
 

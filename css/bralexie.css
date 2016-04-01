@@ -27,3 +27,8 @@ body {
 .headerCell {
     font-weight: bold;
 }
+
+.btn-nova-conta {
+    background: #337733;
+    color: white;
+}
