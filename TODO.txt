@@ -1,3 +1,25 @@
+## CRUD actions
+ 
+* Account
+
+- Create: Set balance = 0
+
+- Read: Render name and balance
+
+- Update: Re-render transaction list to reflect new name. User should not be able to update balance.
+
+- Delete: Delete all associated transactions
+
+* Transaction
+
+- Create: Update respective account balances
+
+- Read: Render date, description, amount, debit and credit account names
+
+- Update: Alter account balances based on difference of amounts, or change in debit or credit account
+
+- Delete: Alter account balances
+
 ## To-do
 
 * New layout: remove transactions dropdown, add a "generic" transaction
@@ -9,12 +31,11 @@ five account types
 * Handle negatives in display/parse decimals
 
 * Incorporate account types into a catchy name
-
-* Assets: Bens e Direitos
-* Expenses: Despesas
-* Liabilities: Obrigações
-* Income: Receitas
-* Equity: Patrimônio Líquido
+- Assets: Bens e Direitos
+- Expenses: Despesas
+- Liabilities: Obrigações
+- Income: Receitas
+- Equity: Patrimônio Líquido
 
 Transaction types:
 

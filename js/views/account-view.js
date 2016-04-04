@@ -20,6 +20,7 @@ var app = app || {};
 
     initialize: function() {
       this.listenTo(this.model, 'destroy', this.remove);  // view function that removes el from the DOM
+      this.listenTo(this.model, 'change', this.render);
     },
 
     close: function() {

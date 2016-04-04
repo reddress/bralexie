@@ -4,16 +4,16 @@ var app = app || {};
   'use strict';
 
   app.AppView = Backbone.View.extend({
-    el: '.todoapp',
+    el: '.bralexie-app',
 
     events: {
-      'keypress .new-todo': 'createOnEnter',
+      'keypress .new-account': 'createOnEnter',
     },
     
     initialize: function() {
       this.$main = this.$('.main');
-      this.$input = this.$('.new-todo');
-      this.$list = $('.todo-list');
+      this.$input = this.$('.new-account');
+      this.$list = $('.account-list');
 
       this.listenTo(app.accounts, 'add', this.addOne);
       this.listenTo(app.accounts, 'reset', this.addAll);  // triggered at the end of fetching accounts
