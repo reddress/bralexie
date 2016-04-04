@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixed top nav</title>
+
+    <link rel="stylesheet" href="/external/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/external/css/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" href="/css/bralexie.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" id="btnCollapse" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Trocar navegação</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BrAlexie</a>
+        </div> <!-- navbar-header -->
+        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+
+            <!-- Begin Nav content -->
+
+            <li><a class="contentLink" href="#menuContas">Contas</a></li>
+            
+            <!--
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contas <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="contentLink" href="#contas_bens">Bens</a></li>
+                <li><a class="contentLink" href="#contas_despesas">Despesas</a></li>
+                <li><a class="contentLink" href="#contas_obrigacoes">Obrigações</a></li>
+                <li><a class="contentLink" href="#contas_receitas">Receitas</a></li>
+                <li><a class="contentLink" href="#contas_patrimonio">Patrimônio líquido</a></li>
+              </ul>
+            </li> --> <!-- contas dropdown -->
+
+            <!--
+            <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transações <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Nova despesa</a></li>
+            <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Nova receita</a></li>
+            <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Definir saldo inicial</a></li>
+            <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Transferir bens</a></li>
+            <li><a class="contentLink" data-toggle="modal" data-target="#novaTransacaoModal">Outra transação</a></li>
+            -->
+            
+            <!--
+            <li><a class="contentLink" href="#transacoes_despesa">Nova despesa</a></li>
+            <li><a class="contentLink" href="#transacoes_receita">Nova receita</a></li>
+            <li><a class="contentLink" href="#transacoes_definirSaldo">Definir saldo inicial</a></li>
+            <li><a class="contentLink" href="#transacoes_transferirBens">Transferir bens</a></li>
+            <li><a class="contentLink" href="#transacoes_outro">Outra transação</a></li>
+            -->
+
+            <!--
+            </ul>
+            </li>
+            -->
+            <!-- transacoes dropdown -->
+            
+            <!-- TODO: move to "homepage" (#) content screen
+            <li><a class="contentLink" href="#meus_dados">Meus dados <span class="glyphicon glyphicon-user"></span></a></li>
+            -->
+
+            <!-- Mes -->
+            <li class="dropdown">
+              <a id="monthLabel" data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mês <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="monthLabel">
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(1);">Janeiro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(2);">Fevereiro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(3);">Março</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(4);">Abril</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(5);">Maio</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(6);">Junho</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(7);">Julho</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(8);">Agosto</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(9);">Setembro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(10);">Outubro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(11);">Novembro</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateMonth(12);">Dezembro</a></li>
+              </ul>
+            </li> <!-- mes dropdown -->
+            
+            
+            <!-- Ano -->
+            <li class="dropdown">
+              <a id="yearLabel" data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ano <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="yearLabel">
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2015);">2015</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2016);">2016</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2017);">2017</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2018);">2018</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2019);">2019</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2020);">2020</a></li>
+                <li><a class="contentLink" data-target="#" onclick="updateYear(2021);">2021</a></li>
+              </ul>
+            </li> <!-- ano dropdown -->
+            
+            
+          </ul> <!-- nav navbar-nav -->
+        </div> <!-- navbar -->
+      </div> <!-- container -->
+    </nav>
+
+    <section id="mainContent">
+
+      <!--
+      <table>
+        <tr class="accountSummaryRow" data-href="#conta_0">
+          <td>
+            Conta 0
+          </td>
+        </tr>
+
+        
+      </table>
+      Tr 01<br>
+      Tr 02<br>
+      Tr<br>
+      Tr<br>
+      Tr -1<br>
+      -->
+      
+    </section> <!-- mainContent -->
+
+
+    <!-- Nova Conta Modal -->
+    <div class="modal fade" id="novaContaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nova conta</h4>
+          </div>
+
+          <form class="modalForm">
+            
+            <div class="modal-body">
+              <input type="text" class="form-control" placeholder="Nome" id="novaContaInput" autofocus>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetNovaContaModal();">Cancelar</button>
+              <button type="submit" class="btn btn-primary" onclick="addAccount();" id="novaContaAdicionar" disabled>Adicionar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div> <!-- end Nova Conta Modal -->
+    
+
+    <!-- Nova Transação Modal -->
+    <div class="modal fade" id="novaTransacaoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nova transação</h4>
+          </div>
+
+          <form class="modalForm">
+
+            <div class="modal-body">
+              Descrição: 
+              <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput" autofocus>
+              
+              <br>
+              
+              Valor:
+              <input type="text" class="form-control" placeholder="Nome" id="novaTransacaoInput">
+
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetNovaTransacaoModal();">Cancelar</button>
+              <button type="submit" class="btn btn-primary" onclick="addTransaction();" id="novaTransacaoAdicionar" disabled>Adicionar</button>
+            </div>
+
+            
+          </form>
+        </div>
+      </div>
+    </div> <!-- end Nova Transação Modal -->
+
+    
+    <script src="/external/js/jquery.js"></script>
+    <script src="/external/js/bootstrap.min.js"></script>
+    <script src="/external/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="/js/sampleData.js"></script>
+
+    <script>
+     // content updates
+     var currentMonth = 1;    // default date
+     var currentYear = 2015;  // default date
+
+     var accountTypeNames = {
+       bens: "Bens",
+       despesas: "Despesas",
+       obrigacoes: "Obrigações",
+       receitas: "Receitas",
+       patrimonio: "Patrimônio líquido",
+     };
+     
+     function updateMonth(monthNumber) {
+       currentMonth = monthNumber;
+       
+       var monthNames = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+       $("#monthLabel").html(monthNames[monthNumber] + " <span class='caret'></span>");
+       updateContent();
+     }
+
+     function updateYear(yearNumber) {
+       currentYear = yearNumber;
+       
+       $("#yearLabel").html(yearNumber + " <span class='caret'></span>");
+       updateContent();
+     }
+    </script>
+
+    <script>
+     // UI
+     function validateAccountName() {
+       $("#novaContaInput").keyup(function() {
+         if ($("#novaContaInput").val() === "") {
+           $("#novaContaAdicionar").prop('disabled', true);
+         } else {
+           $("#novaContaAdicionar").prop('disabled', false);
+         }
+       });
+     }
+
+     validateAccountName();
+
+     function validateTransactionName() {
+       $("#novaTransacaoInput").keyup(function() {
+         if ($("#novaTransacaoInput").val() === "") {
+           $("#novaTransacaoAdicionar").prop('disabled', true);
+         } else {
+           $("#novaTransacaoAdicionar").prop('disabled', false);
+         }
+       });
+     }
+
+     validateTransactionName();
+     
+     $(document).on('shown.bs.modal', '.modal', function() {
+       $(this).find('[autofocus]').focus();
+     });
+
+     $('.modalForm').submit(function(e) {
+       e.preventDefault();
+       $("#novaContaModal").modal('hide');
+       $("#novaTransacaoModal").modal('hide');
+     });
+    </script>
+    
+    <script>
+     window.addEventListener("hashchange", function() {
+       updateContent();
+     });
+
+     // Hide mobile menu on selection
+     $("a.contentLink").click(function() {
+       if ($("#btnCollapse").css('display') != 'none') {
+         $("#btnCollapse").click();
+       }
+     });
+
+     function setContent(content) {
+       $("#mainContent").html(content);
+     }
+
+     function transactionsTable(transactions) {
+       var table = '<table class="summaryTable">';
+
+       // header row
+       table += "<thead>";
+       table += "<tr>";
+       table += "  <td>&nbsp;</td>";
+       table += "  <td>Valor</td>"
+       table += "  <td>Dr</td>";
+       table += "  <td>Cr</td>";
+       table += "</tr>";
+       table += "</thead>";
+
+       for (var i = 0; i < transactions.length; i++) {
+         var transaction = transactions[i];
+         
+         table += "<tr>";
+         table += "  <td class='headerCell'>" + transaction.description + "</td>";
+         table += "  <td class='numberCell'>" + transaction.amount + "</td>";
+         table += "  <td>" + sampleAccounts[transaction.debit].name + "</td>";
+         table += "  <td>" + sampleAccounts[transaction.credit].name + "</td>";
+         table += "</tr>";
+       }
+       
+       return table;
+     }
+
+     function accountTypeSummaryTable(accounts, accountType) {
+       var leadingZero = "";
+       if (currentMonth < 10) {
+         leadingZero = "0";
+       }
+       
+       var monthTableLabel = leadingZero + currentMonth.toString() + "/" + currentYear.toString();
+       var table = '<table class="summaryTable">';
+
+       // header row
+       table += "<thead>";
+       table += "<tr>";
+       table += "  <td>&nbsp;</td>";
+       table += "  <td class='numberCell headerCell'>Saldo</td>"
+       table += "  <td class='numberCell headerCell' id='accountTypeSummaryMonth'>" + monthTableLabel + "</td>";
+
+       if (accountType === "despesas") {
+         table += "  <td class='numberCell headerCell'>Orçamento</td>";
+       }
+       
+       table += "</tr>";
+       table += "</thead>";
+
+       // filter by account type, display name and balance
+       for (var i = 0; i < accounts.length; i++) {
+         var currentAccount = accounts[i];
+         if (currentAccount.accountType === accountType) {
+           table += '<tr class="accountSummaryRow" onclick="updateHash(\'#conta_' +currentAccount.id + '\');">';
+           table += "  <td class='headerCell'>" + currentAccount.name + "</td>";
+           table += "  <td class='numberCell'>" + currentAccount.balance + "</td>";
+           table += "  <td class='numberCell'>" + currentAccount.balance + "</td>";
+
+           if (accountType === "despesas") {
+             table += "  <td class='numberCell'>" + Math.round(currentAccount.balance / 1.2)+ "</td>";
+           }
+           
+           table += "</tr>";
+         }
+       }
+       
+       table += "</table>";
+
+       return table;
+     }
+
+     function accountSummaryContent(allTransactions, allAccounts, accountId) {
+       var accountType = allAccounts[accountId].accountType
+       var output = "";
+       output += '<h4><span class="contentHeaderLabel"><a href="#menuContas">Contas</a> &gt; <a href="#contas_' + accountType + '">' + accountTypeNames[accountType] + '</a> &gt; ' + allAccounts[accountId].name + '</span></h4>';
+
+       // add Transaction button
+       output += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaTransacaoModal">Nova transação</button>';
+
+       // output += "<br><br>";
+       // output += '<span class="subHeaderLabel">' + allAccounts[accountId].name + '</span>';
+
+       
+       output += transactionsTable(getTransactions(allTransactions, accountId));
+       return output;
+     }
+     
+     function accountTypeSummaryContent(accounts, accountType) {       
+       var output = "";
+       output += '<h4><span class="contentHeaderLabel"><a href="#menuContas">Contas</a> &gt; ' + accountTypeNames[accountType] + '</span></h4>';
+ 
+       output += '<button type="button" class="btn btn-nova-conta" data-toggle="modal" data-target="#novaContaModal">Nova conta</button>';
+
+       output += '<br>';
+       
+       output += accountTypeSummaryTable(accounts, accountType);
+       return output;
+     }
+
+     function addAccount() {
+       // TODO: THIS IS FOR DEBUG ONLY
+       var existingAccounts = sampleAccounts;
+       
+       // infer account type from hash and name from input id
+       var hashParts = location.hash.split("_");
+       var accountType = hashParts[1];
+       // var accountName = $(".newAccountName").val();
+       var accountName = $("#novaContaInput").val();
+       console.log("add new acct type " + accountType + " " + accountName);
+       var newAccount = {
+         id: sampleAccounts.length,
+         accountType: accountType,
+         name: accountName,
+         balance: 0,
+       };
+
+       existingAccounts.push(newAccount);
+       updateContent();
+
+       resetNovaContaModal();
+       $("#novaContaModal").modal('hide');
+     }
+
+     function addTransaction() { 
+       resetNovaTransacaoModal();
+       $("#novaTransacaoModal").modal('hide');      
+     }
+
+     function resetNovaContaModal() {
+       $("#novaContaInput").val("");
+       $("#novaContaAdicionar").prop("disabled", true);
+     }
+
+     function resetNovaTransacaoModal() {
+       $("#novaTransacaoInput").val("");
+       $("#novaTransacaoAdicionar").prop("disabled", true);
+     }
+
+     function getTransactions(allTransactions, accountId) {
+       var filteredTransactions = [];
+       for (var i = 0; i < allTransactions.length; i++) {
+         var currentTransaction = allTransactions[i];  // use slice() if mutating
+         if (currentTransaction.debit === accountId || currentTransaction.credit === accountId) {
+           console.log("match " + currentTransaction.description);
+           filteredTransactions.push(currentTransaction);
+         }
+       }
+       return filteredTransactions;
+     }
+
+     function menuContas() {
+       // accountTypeNames
+       var output = "<h4>Contas</h4>";
+
+       output += "<h4><span class='contentHeaderLabel'><a href='#contas_bens'>Bens</a></span></h4>";
+       output += "<h4><span class='contentHeaderLabel'><a href='#contas_despesas'>Despesas</a></span></h4>";
+       output += "<h4><span class='contentHeaderLabel'><a href='#contas_obrigacoes'>Obrigações</a></span></h4>";
+       output += "<h4><span class='contentHeaderLabel'><a href='#contas_receitas'>Receitas</a></span></h4>";
+       output += "<h4><span class='contentHeaderLabel'><a href='#contas_patrimonio'>Patrimônio líquido</a></span></h4>";
+
+       return output;
+     }
+     
+     function updateContent() {
+       if (location.hash !== "") {
+         var hashParts = location.hash.substr(1).split("_");
+         var action = hashParts[0];
+         var actionObject = hashParts[1];
+         
+         if (action === "contas") {
+           setContent(accountTypeSummaryContent(sampleAccounts, actionObject));
+           
+         } else if (action === "transacoes") {
+           setContent(actionObject);
+
+         } else if (action === "menuContas") {
+           setContent(menuContas());
+           
+         } else if (action === "conta") {
+           var accountId = sampleAccounts[parseInt(actionObject, 10)].id ;
+           // var accountId = parseInt(actionObject, 10);
+           setContent(accountSummaryContent(sampleTransactions, sampleAccounts, accountId));
+
+           // transactionsTable(getTransactions(sampleTransactions, accountId)));
+           
+         } else if (action === "novaTransacaoModal") {
+           
+         } else {
+           console.log("Ação inválida: " + action);
+         }
+       } else {
+         var menuContasList = menuContas();
+         var newTransactionButton = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#novaTransacaoModal">Nova transação</button>';
+         
+         setContent(menuContasList + "<br><h4>Últimas transações</h4>" + newTransactionButton + transactionsTable(sampleTransactions));
+       }
+     }
+
+     function updateHash(newHash) {
+       window.document.location = newHash;
+     }
+
+     $(window).load(function() {
+       // compute today's month and year
+       var now = new Date();
+       currentMonth = now.getMonth() + 1;
+       currentYear = now.getYear() + 1900;
+       
+       updateMonth(currentMonth);
+       updateYear(currentYear);
+       
+       updateContent();
+     });
+    </script>
+  </body>
+</html>
