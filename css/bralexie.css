@@ -43,3 +43,7 @@ body {
     color: white;
 }
 
+.nav.nav-tabs li.active a {
+    background: #D9E9F0;
+    font-weight: bold;
+}

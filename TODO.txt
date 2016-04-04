@@ -1,6 +1,11 @@
+## CURRENT WORK
+
+tabbed-index.html - Bootstrap tabs
+index.html - Backbone models
+
 ## To-do
 
-* Month, year are global
+* Month, year and selected account are properties of the app object.
 
 * New layout: remove transactions dropdown, add a "generic" transaction
 button on homepage, and specific transaction buttons on each of the
